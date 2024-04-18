@@ -1,0 +1,232 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* CSS VARIABLES */
+
+:root {
+    --black: #0D0D0D;
+    --white: #F2F2F2;
+    --dark-blue: #7ABFBF;
+    --light-blue: rgba(122, 191, 191, .5);
+    --orange: #EB5428; 
+}
+
+/* BASIC STYLING */
+
+html {
+    background-color: var(--light-blue);
+}
+
+body {
+    background-color: var(--white);
+    line-height: 1.25;
+    margin: 0 auto;
+    width: 414px;
+}
+
+h1, h2, h3, nav a, nav span, menu li, #social li, footer {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+nav a, nav span, menu li, #social li footer {
+    font-size: 20px;
+}
+
+p, dd, li, nav, input, dt {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+
+dt {
+    font-weight: 700;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+svg {
+    stroke: var(--orange);
+}
+
+/* Header */
+
+h1 {
+    text-align: center;
+    padding-top: 160px;
+}
+
+menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 10px;
+}
+
+menu li {
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 20px;
+}
+
+menu span {
+    color: var(--orange);
+}
+
+/* Hamburger Menu Code - NAV */
+
+nav {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 50px;
+    position: absolute;
+    top: 0;
+}
+
+nav h2 {
+    display: none;
+}
+
+nav label {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 414px;
+}
+
+nav label a {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#home, #dropdown {
+    background-color: var(--orange);
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+#home span {
+    display: none;
+}
+
+#home svg {
+    stroke: var(--white);
+}
+
+#avatar span, #menu span {
+    color: var(--black);
+}
+
+#avatar {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    text-decoration: none;
+}
+
+#menu {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    text-decoration: none;
+}
+
+nav ul {
+    display: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Search Bar */
+
+#search {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 275px;
+}
+
+#search form {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    position: absolute;
+    top: 95px;
+}
+
+#search h3 {
+    display: none;
+}
+
+#search input, #search button {
+    border: 1px var(--orange) solid;
+}
+
+#search button {
+    background-color: var(--orange);
+}
+
+#search button svg {
+    height: 40px;
+    stroke: var(--white);
+}
