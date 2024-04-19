@@ -69,7 +69,7 @@ body {
     width: 414px;
 }
 
-h1, h2, h3, nav a, nav span, menu li, #social li, footer {
+h1, h2, h3, nav a, nav span, menu li button, #social li, footer {
     font-family: "Bebas Neue", sans-serif;
 }
 
@@ -85,7 +85,7 @@ h3 {
     font-size: 25px;
 }
 
-nav a, nav span, menu li, #social li footer {
+nav a, nav span, menu li button, #social li footer {
     font-size: 20px;
 }
 
@@ -121,11 +121,13 @@ menu {
     margin-top: 10px;
 }
 
-menu li {
+menu li button {
     align-items: center;
+    border-style: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column-reverse;
-    margin: 20px;
+    margin: 15px;
 }
 
 menu span {
@@ -199,14 +201,13 @@ nav ul li a {
 
 /* Search Bar */
 
-#search {
+#search-bar {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 275px;
 }
 
-#search form {
+#search-bar form {
     display: flex;
     height: 40px;
     justify-content: center;
@@ -214,19 +215,23 @@ nav ul li a {
     top: 95px;
 }
 
-#search h3 {
+#search-bar h3 {
     display: none;
 }
 
-#search input, #search button {
+#search {
+    width: 250px;
+}
+
+#search-bar input, #search-bar button {
     border: 1px var(--orange) solid;
 }
 
-#search button {
+#search-bar button {
     background-color: var(--orange);
 }
 
-#search button svg {
+#search-bar button svg {
     height: 40px;
     stroke: var(--white);
 }
