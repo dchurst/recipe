@@ -69,7 +69,7 @@ body {
     width: 414px;
 }
 
-h1, h2, h3, nav a, nav span, menu li button, #social li, footer {
+h1, h2, h3, nav a, nav span, nav p, menu li button, #social li, footer {
     font-family: "Bebas Neue", sans-serif;
 }
 
@@ -85,7 +85,7 @@ h3 {
     font-size: 25px;
 }
 
-nav a, nav span, menu li button, #social li footer {
+nav a, nav span, nav p, menu li button, #social li footer {
     font-size: 20px;
 }
 
@@ -111,7 +111,7 @@ svg {
 
 h1 {
     text-align: center;
-    padding-top: 160px;
+    padding-top: 180px;
 }
 
 menu {
@@ -137,33 +137,74 @@ menu span {
 /* Hamburger Menu Code - NAV */
 
 nav {
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     margin-bottom: 50px;
     position: absolute;
     top: 0;
+    width: 414px;
 }
 
 nav h2 {
     display: none;
 }
 
-nav label {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    width: 414px;
+nav div {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-nav label a {
+nav div a, nav div span {
     align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column-reverse;
+    padding: 5px;
 }
 
-#home, #dropdown {
+nav div label {
+    cursor: pointer;
+}
+
+nav img {
+    display: none;
+}
+
+nav ul {
+    align-items: center;
+    background-color: var(--white); 
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 4;
+    grid-row-start: 2;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#dropdown:checked ~ nav ul {
+    max-height: 500px;
+}
+
+nav li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+#menu a, #avatar a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+#menu {
+    grid-column-start: 1;
+}
+
+#home {
     background-color: var(--orange);
-    grid-column-start: 2;
-    grid-row-start: 1;
 }
 
 #home span {
@@ -174,29 +215,8 @@ nav label a {
     stroke: var(--white);
 }
 
-#avatar span, #menu span {
-    color: var(--black);
-}
-
 #avatar {
     grid-column-start: 3;
-    grid-row-start: 1;
-    text-decoration: none;
-}
-
-#menu {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    text-decoration: none;
-}
-
-nav ul {
-    display: none;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000;
 }
 
 /* Search Bar */
@@ -211,8 +231,9 @@ nav ul li a {
     display: flex;
     height: 40px;
     justify-content: center;
+    margin: 10px 0;
     position: absolute;
-    top: 95px;
+    top: 100px;
 }
 
 #search-bar h3 {
