@@ -181,6 +181,10 @@ nav ul {
     z-index: 1;
 }
 
+nav input {
+    display: none;
+}
+
 #dropdown:checked ~ nav ul {
     max-height: 500px;
 }
