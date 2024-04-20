@@ -109,6 +109,10 @@ svg {
 
 /* Header */
 
+header {
+    position: relative;
+}
+
 h1 {
     text-align: center;
     padding-top: 200px;
@@ -132,22 +136,71 @@ menu li button {
 
 menu span {
     color: var(--orange);
+    padding: 2px 4px;
+}
+
+menu span:hover {
+    background-color: var(--orange);
+    color: var(--white);
 }
 
 /* Hamburger Menu Code - NAV */
 
 nav {
+    background-color: var(--white);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     margin-bottom: 50px;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 414px;
+    z-index: 2;
 }
 
 nav h2 {
     display: none;
+}
+
+nav ul {
+    align-items: center;
+    background-color: var(--white); 
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 4;
+    grid-row-start: 2;
+    max-height: 0;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+}
+
+nav li {
+    margin-top: 2px;
+}
+
+nav ul li a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+.food-item {
+    
+    height: 100%;
+    padding: 5px;
+    width: 100%;
+}
+
+.food-item a {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.food-item a:hover {
+    background-color: var(--orange);
+    color: var(--white);
 }
 
 nav label, nav li:first-child a, nav li:last-child a {
@@ -169,7 +222,7 @@ nav li:first-child a {
     background-color: #EB5428;
     position: absolute;
     top: 0;
-    right: 125px;
+    right: 120px;
 }
 
 nav li:first-child a svg {
@@ -182,7 +235,23 @@ nav li:last-child {
     margin: 0;
     position: absolute;
     top: 0;
-    right: 30px;
+    right: 0;
+    width: 120px;
+}
+
+nav li:last-child:hover {
+    background-color: var(--orange);
+    transition: all .5s ease-in-out;
+}
+
+nav li:last-child:hover span {
+    color: var(--white);
+    transition: all .7s ease-in-out;
+}
+
+nav li:last-child:hover svg {
+    stroke: var(--white);
+    transition: all .5s ease-in-out;
 }
 
 nav label {
@@ -193,34 +262,12 @@ nav img {
     display: none;
 }
 
-nav ul {
-    align-items: center;
-    background-color: var(--white); 
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 / 4;
-    grid-row-start: 2;
-    max-height: 0;
-    transition: all .5s ease-in-out;
-    overflow: hidden;
-    z-index: 1;
-}
-
 nav input {
     display: none;
 }
 
 nav input:checked ~ ul {
-    max-height: 500px;
-}
-
-nav li {
-    margin: 10px 0;
-}
-
-nav ul li a {
-    color: var(--orange);
-    text-decoration: none;
+    max-height: 600px;
 }
 
 /* Search Bar */
@@ -313,6 +360,11 @@ aside h2 {
     grid-template-columns: 1fr 2fr;
     height: 125px;
     margin: 15px 0;
+    padding: 10px;
+}
+
+.side-dishes:hover {
+    background-color: var(--orange);
 }
 
 .side-dishes img {
@@ -338,6 +390,7 @@ aside h2 {
 
 .side-dishes p {
     align-self: center;
+    margin-bottom: 10px;
 }
 
 .side-dishes dl {
@@ -385,6 +438,15 @@ footer h2, footer h3 {
     text-decoration: none;
 }
 
+#social span {
+    padding: 2px 4px;
+}
+
+#social span:hover {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
 #copyright {
     align-items: center;
     display: flex;
@@ -404,4 +466,146 @@ footer h2, footer h3 {
 
 #copyright div p:first-of-type {
     margin-top: 15px;
+}
+
+/***** Media Queries *****/
+
+@media screen and (min-width:768px) {
+    
+    body {
+        width: 768px;
+    }
+
+    h1 {
+        margin-left: 10px;
+        padding: 250px 0 12px 0;
+        text-align: left;
+    }
+
+    #main-nav {
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    nav {
+        height: 225px;
+        width: 768px;
+    }
+
+    nav label {
+        display: none;
+    }
+
+    nav ul {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        overflow: visible;
+    }
+
+    nav li:first-child a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        height: 50px;
+        width: 100px;
+    }
+
+    .food-item a {
+        display: flex;
+        flex-direction: column-reverse;
+        position: absolute;
+        top: 115px;
+        width: 100px;
+    }
+
+    .food-item img {
+        display: block;
+        height: 75px;
+        width: 75px;
+    }
+
+    .food-item:hover li {
+        width: 100%;
+    }
+
+    #search-bar form {
+        position: fixed;
+        top: 20px;
+        right: 75px;
+        left: 275px;
+        z-index: 3;
+    }
+
+    menu {
+        backdrop-filter: blur(3px);
+        background-color: rgb(255, 255, 255, 0.6);
+        padding: 10px 0;
+        position: absolute;
+        top: 312px;
+        left: 0;
+        width: 768px;
+        margin: 0;
+    }
+
+    menu li {
+        margin: 0 45px;
+    }
+
+    menu li button {
+        background: transparent;
+    }
+
+    #details dl {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+    }
+
+    #details dt {
+        grid-column-start: 2;
+    }
+
+    #instructions {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    #directions ol li {
+        margin: 20px 5px 20px;
+    }
+
+    #sides {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .side-dishes dl {
+        display: flex;
+    }
+
+    .side-dishes dt {
+        margin: 0 5px 25px 0;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #social {
+        grid-column-start: 2;
+    }
+
+    #social ul {
+        margin-top: 30px;
+    }
+
+    #copyright {
+        grid-row-start: 1;
+        margin-top: 50px;
+    }
 }
