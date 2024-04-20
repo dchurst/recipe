@@ -111,7 +111,7 @@ svg {
 
 h1 {
     text-align: center;
-    padding-top: 180px;
+    padding-top: 200px;
 }
 
 menu {
@@ -137,6 +137,7 @@ menu span {
 /* Hamburger Menu Code - NAV */
 
 nav {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     margin-bottom: 50px;
@@ -149,18 +150,42 @@ nav h2 {
     display: none;
 }
 
-nav div {
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-}
-
-nav div a, nav div span {
+nav label, nav li:first-child a, nav li:last-child a {
     align-items: center;
     display: flex;
     flex-direction: column-reverse;
-    padding: 5px;
+    padding: 20px 0;
 }
 
-nav div label {
+nav ul span {
+    color: var(--black);
+}
+
+nav li:first-child span {
+    display: none;
+}
+
+nav li:first-child a {
+    background-color: #EB5428;
+    position: absolute;
+    top: 0;
+    right: 120px;
+}
+
+nav li:first-child a svg {
+    stroke: var(--white);
+    height: 65px;
+    width: 180px;
+}
+
+nav li:last-child {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 30px;
+}
+
+nav label {
     cursor: pointer;
 }
 
@@ -176,7 +201,7 @@ nav ul {
     grid-column: 1 / 4;
     grid-row-start: 2;
     max-height: 0;
-    transition: max-height .2s ease-out;
+    transition: all .5s ease-in-out;
     overflow: hidden;
     z-index: 1;
 }
@@ -185,7 +210,7 @@ nav input {
     display: none;
 }
 
-#dropdown:checked ~ nav ul {
+nav input:checked ~ ul {
     max-height: 500px;
 }
 
@@ -196,31 +221,6 @@ nav li {
 nav ul li a {
     color: var(--orange);
     text-decoration: none;
-}
-
-#menu a, #avatar a {
-    color: var(--black);
-    text-decoration: none;
-}
-
-#menu {
-    grid-column-start: 1;
-}
-
-#home {
-    background-color: var(--orange);
-}
-
-#home span {
-    display: none;
-}
-
-#home svg {
-    stroke: var(--white);
-}
-
-#avatar {
-    grid-column-start: 3;
 }
 
 /* Search Bar */
@@ -237,7 +237,7 @@ nav ul li a {
     justify-content: center;
     margin: 10px 0;
     position: absolute;
-    top: 100px;
+    top: 126px;
 }
 
 #search-bar h3 {
@@ -260,3 +260,5 @@ nav ul li a {
     height: 40px;
     stroke: var(--white);
 }
+
+/* Main Content */
