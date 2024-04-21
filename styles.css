@@ -53,7 +53,8 @@ table {
     --white: #F2F2F2;
     --dark-blue: #7ABFBF;
     --light-blue: rgba(122, 191, 191, .5);
-    --orange: #EB5428; 
+    --orange: #EB5428;
+    --yellow: #FFFF2E; 
 }
 
 /* BASIC STYLING */
@@ -185,7 +186,6 @@ nav ul li a {
 }
 
 .food-item {
-    
     height: 100%;
     padding: 5px;
     width: 100%;
@@ -195,12 +195,14 @@ nav ul li a {
     align-items: center;
     justify-content: center;
     display: flex;
+    padding: 10px 0;
     width: 100%;
 }
 
 .food-item a:hover {
     background-color: var(--orange);
     color: var(--white);
+    transition: all .5s ease-in-out;
 }
 
 nav label, nav li:first-child a, nav li:last-child a {
@@ -312,6 +314,7 @@ nav input:checked ~ ul {
 
 #street-tacos p {
     margin: 10px;
+    line-height: 1.75;
 }
 
 #details h2, #ingredients h2, #directions h2 {
@@ -319,9 +322,18 @@ nav input:checked ~ ul {
 }
 
 #details dl {
-    display: grid;
-    grid-template-columns: .75fr 2fr;
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.75;
+}
+
+#details div {
+    display: flex;
+    flex-direction: row;
+}
+
+#details dt {
+    margin: 0 15px 0 10px;
 }
 
 #ingredients {
@@ -340,6 +352,7 @@ nav input:checked ~ ul {
 #directions ol li {
     margin: 10px 10px 10px 28px;
     list-style-type: normal;
+    line-height: 1.75;
 }
 
 /* Aside Content */
@@ -364,7 +377,8 @@ aside h2 {
 }
 
 .side-dishes:hover {
-    background-color: var(--orange);
+    background-color: var(--yellow);
+    transition: all .5s ease-in-out;
 }
 
 .side-dishes img {
@@ -445,6 +459,7 @@ footer h2, footer h3 {
 #social span:hover {
     background-color: var(--orange);
     color: var(--white);
+    transition: all .5s ease-in-out;
 }
 
 #copyright {
@@ -484,7 +499,6 @@ footer h2, footer h3 {
 
     #main-nav {
         box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-        position: relative;
     }
 
     nav {
@@ -512,9 +526,14 @@ footer h2, footer h3 {
         width: 100px;
     }
 
+    .food-item {
+        padding: 0;
+    }
+
     .food-item a {
         display: flex;
         flex-direction: column-reverse;
+        padding: 5px;
         position: absolute;
         top: 115px;
         width: 100px;
@@ -558,15 +577,7 @@ footer h2, footer h3 {
     }
 
     #details dl {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
-    }
-
-    #details dt {
-        grid-column-start: 2;
+        align-items: center;
     }
 
     #instructions {
@@ -607,5 +618,195 @@ footer h2, footer h3 {
     #copyright {
         grid-row-start: 1;
         margin-top: 50px;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    
+    body {
+        width: 1280px;
+    }
+
+    h1 {
+        padding-top: 225px;
+        text-align: center;
+    }
+
+    nav {
+        height: 105px;
+        width: 1280px;
+    }
+
+    nav li:first-child a {
+        height: 65px;
+    }
+
+    .food-item {
+        margin: 0;
+        padding: 0;
+        width: 125px;
+    }
+
+    .food-item a {
+        height: 95px;
+        top: 0;
+    }
+
+    .food-item img {
+        height: 60px;
+        width: 60px;
+    }
+
+    #search-bar form {
+        position: absolute;
+        top: 140px;
+        right: 245px;
+        z-index: 0;
+    }
+
+    menu  {
+        align-items: center;
+        justify-content: start;
+        backdrop-filter: none;
+        background-color: transparent;
+        border: 1px var(--orange) solid;
+        display: flex;
+        flex-direction: column;
+        height: 699px;
+        top: 287px;
+        width: 159px;
+    }
+
+    #street-tacos {
+        display: grid;
+        grid-template-columns: .5fr 1.5fr 2fr;
+    }
+
+    #street-tacos img {
+        grid-column-start: 2;
+    }
+
+    #street-tacos p {
+        grid-column-start: 3;
+        grid-row-start: 1;
+    }
+
+    #street-tacos p:last-of-type {
+        align-self: center;
+        margin-bottom: 295px;
+    }
+
+    #details {
+        background-color: var(--black);
+    }
+    
+    #details dl {
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    #details div {
+        align-items: center;
+        flex-direction: column;
+        margin: 10px 65px;
+    }
+
+    #details h2, #details dt, #details dd {
+        color: var(--dark-blue);
+    }
+
+    #details h2 {
+        padding-top: 10px;
+    }
+
+    #details dt {
+        margin: 0;
+    }
+
+    aside {
+        height: 450px;
+    }
+
+    #sides {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .side-dishes {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        height: 395px;
+        margin: 0;
+        padding: 5px;
+    }
+
+    .side-dishes h3 {
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    .side-dishes img {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        height: 280px;
+        width: 280px;
+    }
+
+    .side-dishes p {
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+
+    .side-dishes dl {
+        grid-column-start: 1;
+        grid-row-start: 4;
+    }
+
+    #social li a {
+        margin: 0 32px;
+    }
+
+    #copyright {
+        align-items: flex-start;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: row-reverse;
+        padding-bottom: 20px;
+        margin-left: 10px;
+    }
+}
+
+@media print {
+    body {
+        margin: 0.5in;
+        font-family: serif;
+    }
+
+    h1 {
+        padding-top: 0;
+    }
+
+    #search-bar, img, nav, menu, aside, #social  {
+        display: none;
+    }
+
+    #details {
+        position: absolute;
+        top: 120px;
+        right: 90px;
+    }
+
+    #instructions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #directions {
+        margin-left: 100px;
+    }
+
+    #directions ol li {
+        width: 500px;
     }
 }
