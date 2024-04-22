@@ -289,6 +289,10 @@ nav input:checked ~ ul {
     top: 126px;
 }
 
+#search-bar button {
+    cursor: pointer;
+}
+
 #search-bar h3 {
     display: none;
 }
